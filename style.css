@@ -1,0 +1,273 @@
+/* ========================================
+   AI & You - Workshop Presentation
+   Palette: paper bg, soft primaries, dark text
+   Flat hierarchy: no headings, uniform text size
+   ======================================== */
+
+/* --- Reset & Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F2EFE6; /* warm paper tone */
+  color: #1A1A1A; /* softened black for body text */
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Layout: single narrow centered column --- */
+.page-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+  position: relative;
+  z-index: 1; /* sits below p5 canvas overlay */
+}
+
+/* --- Intro screen: large empty opening area --- */
+.intro {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin-bottom: 10vh; /* gap before content starts */
+}
+
+.intro .title {
+  margin-bottom: 0.5em;
+}
+
+.intro .subtitle {
+  margin-bottom: 0;
+  opacity: 0.65;
+}
+
+/* --- Title: the only bold element on the page --- */
+.title {
+  font-weight: 700;
+  color: #E94B35; /* red-orange */
+  margin-bottom: 0.5em;
+}
+
+/* "You" trigger: looks like text, pointer on hover */
+#you-trigger {
+  cursor: pointer;
+}
+
+/* Hidden word: invisible until revealed by click */
+#hidden-word {
+  display: none;
+  color: #6FA7D6; /* blue from palette */
+}
+
+/* Date trigger: looks like text, pointer on hover */
+#date-trigger {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+#date-trigger:hover {
+  color: #6FA7D6; /* subtle blue shift on hover */
+}
+
+/* Songkran popup: floating image over the page */
+#songkran-popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 10;
+  text-align: center;
+  max-width: 50vw;
+}
+
+#songkran-popup img {
+  display: block;
+  width: 50vw;
+  max-width: 700px;
+}
+
+#songkran-popup p {
+  margin-top: 0.4em;
+  opacity: 0.6;
+}
+
+/* --- All text: uniform size, no emphasis --- */
+p, div, span, li, blockquote, code {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.subtitle {
+  opacity: 0.6;
+  margin-bottom: 2em;
+}
+
+/* --- Simple line break separators --- */
+.break {
+  height: 2em;
+}
+
+/* --- Lists --- */
+ul {
+  list-style: none;
+  padding-left: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+ul li {
+  position: relative;
+  margin-bottom: 0.45em;
+  font-weight: 400; /* never bold */
+}
+
+ul li::before {
+  content: "-";
+  position: absolute;
+  left: -1.2em;
+  color: #E94B35; /* red-orange dash */
+}
+
+/* Nested lists */
+ul ul {
+  margin-top: 0.35em;
+  margin-bottom: 0.5em;
+  padding-left: 1.4em;
+}
+
+/* Third level */
+ul ul ul {
+  padding-left: 1.4em;
+}
+
+/* --- Quote highlight: Roboto bold, subtle scale on hover --- */
+.quote-highlight {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  display: inline-block; /* needed for transform to work */
+  transition: transform 0.3s ease;
+}
+
+.quote-highlight:hover {
+  transform: scale(1.04);
+}
+
+/* --- Paragraphs --- */
+p {
+  margin-bottom: 1.1em;
+}
+
+/* --- Links --- */
+a {
+  color: #4F86B8; /* darker accent blue */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #6FA7D6; /* soft sky blue on hover */
+}
+
+/* --- Inline images --- */
+.inline-image {
+  display: block;
+  max-width: 100%;
+  margin: 1.5em 0;
+  border: 1px solid rgba(26, 26, 26, 0.12);
+}
+
+/* --- Flow diagram text --- */
+.flow {
+  letter-spacing: 0.04em;
+  margin: 0.5em 0 1em;
+  opacity: 0.7;
+}
+
+/* --- Hover-image triggers --- */
+.hover-trigger {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px dashed #6FBF73; /* soft green */
+}
+
+/* The hidden image that appears on hover */
+.hover-trigger .hover-image {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  max-width: 340px;
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  margin-bottom: 8px;
+}
+
+.hover-trigger:hover .hover-image {
+  display: block;
+}
+
+/* --- Blockquote: same size, left border accent --- */
+blockquote {
+  border-left: 2px solid #F2C94C; /* warm yellow */
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* --- Code / terminal style --- */
+code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.88em;
+  background: #E8E3D6; /* slightly darker paper for contrast */
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background: #E8E3D6;
+  border: 1px solid rgba(26, 26, 26, 0.1);
+  padding: 1em 1.2em;
+  overflow-x: auto;
+  margin: 1em 0 1.5em;
+  border-radius: 4px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* --- Selection color --- */
+::selection {
+  background: rgba(111, 191, 115, 0.3); /* soft green selection */
+  color: #1A1A1A;
+}
+
+/* --- Diagram images: static files from assets/images/ --- */
+.diagram-image {
+  display: block;
+  max-width: 100%;
+  margin: 2em auto;
+}
+
+/* --- p5 canvas overlay (set via sketch.js) --- */
+/* canvas is fixed, full-window, pointer-events: none so text is clickable */

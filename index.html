@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI & You</title>
+
+  <!-- Google Font: Noto Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ======== INTRO SCREEN ======== -->
+  <!-- Large empty opening area, feels like a blank page with just four lines -->
+  <div class="intro">
+
+    <!-- Click "You" to reveal the hidden word. Edit #hidden-word to change what appears. -->
+    <p class="title">AI & <span id="you-trigger">You</span> <span id="hidden-word">Decide</span></p>
+
+    <p class="subtitle">
+      Tiri Kananuruk<br>
+      <!-- Click the date to reveal a hidden image. Change the image in #songkran-popup below. -->
+      <span id="date-trigger">April 13, 2026</span><br>
+      Yale IDD Workshop
+    </p>
+
+    <!-- Hidden Songkran image popup. To change, swap the src filename below. -->
+    <div id="songkran-popup">
+      <img src="assets/images/songkran.jpg" alt="Happy Thai New Year (Songkran)">
+      <p>Happy Thai New Year (Songkran)</p>
+    </div>
+
+  </div>
+
+  <!-- Toggle the hidden word when "You" is clicked -->
+  <script>
+    document.getElementById('you-trigger').addEventListener('click', function() {
+      var word = document.getElementById('hidden-word');
+      if (word.style.display === 'inline') {
+        word.style.display = 'none';
+      } else {
+        word.style.display = 'inline';
+      }
+    });
+
+    // Toggle the Songkran image when the date is clicked
+    document.getElementById('date-trigger').addEventListener('click', function() {
+      var popup = document.getElementById('songkran-popup');
+      if (popup.style.display === 'block') {
+        popup.style.display = 'none';
+      } else {
+        popup.style.display = 'block';
+      }
+    });
+  </script>
+
+  <!-- ======== AGENDA ======== -->
+  <p>Agenda</p>
+  <ul>
+    <li>What is AI
+      <ul>
+        <li>What is ML</li>
+        <li>Alternative Approaches to AI</li>
+      </ul>
+    </li>
+    <li>Introduction to Generative AI</li>
+    <li>Current Tools & Products (I'm trying my best)</li>
+    <li>Critical Perspectives
+      <ul>
+        <li>Winners-Take-All</li>
+        <li>No speculative</li>
+        <li>But why I still need to learn how to code
+          <ul>
+            <li>Computational thinking</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Supporting Perspectives
+      <ul>
+        <li>Yale Tools</li>
+        <li>Op out trainning data</li>
+        <li>How I set up in studio
+          <ul>
+            <li>Vibe Coding VS Spec coding</li>
+          </ul>
+        </li>
+        <li>How I see people use it</li>
+      </ul>
+    </li>
+    <li>Discussion</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== AI ======== -->
+  <p>AI</p>
+
+  <p>
+    <!-- HOVER IMAGE: hover over "Artificial Intelligence (AI)" to show the image -->
+    <!-- To change the image, swap the src filename below -->
+    <span class="hover-trigger">Artificial Intelligence (AI)<img class="hover-image" src="assets/images/artificial-intelligence.png" alt="Artificial Intelligence illustration"></span>
+    is the broad goal of building systems that perform tasks requiring intelligence.
+    Machine Learning (ML) is one way to build AI, where systems learn patterns from data.
+  </p>
+
+  <ul>
+    <li>ML is dominant today, especially for images, language, and audio, but it is not the only path to AI.</li>
+    <li>Alternative paradigms include rule-based reasoning, explicit knowledge systems, search methods, and evolutionary approaches. These can be useful when control, transparency, or low-data design matters.</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== ML ======== -->
+  <p>ML</p>
+  <p class="flow">Data -> Train Model -> Learn Patterns -> Test -> Predict</p>
+
+  <!-- DIAGRAM: ML Pipeline -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/ml-diagram.png" alt="Machine learning pipeline diagram" class="diagram-image">
+
+  <div class="break"></div>
+
+  <!-- ======== NON-ML APPROACHES ======== -->
+  <p>Non-ML Approaches to AI</p>
+
+  <p>Probabilistic / pre-ML generative systems</p>
+  <ul>
+    <li>Markov Chain</li>
+  </ul>
+
+  <!-- DIAGRAM: Markov Chain -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/markov-diagram.png" alt="Markov chain diagram" class="diagram-image">
+
+  <p>Symbolic AI (rule-based systems)</p>
+  <ul>
+    <li>AI built from explicit rules and symbols instead of statistical learning.</li>
+    <li>How it works: designers write logic such as IF condition > THEN action. The system reasons over defined facts and rules.</li>
+    <li>Creative example: a generative poetry tool that enforces rhyme, meter, and grammar rules to produce constrained outputs.</li>
+  </ul>
+
+  <!-- DIAGRAM: Symbolic AI -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/symbolic-ai.png" alt="Symbolic AI diagram" class="diagram-image">
+
+  <p>Expert systems</p>
+
+  <!-- DIAGRAM: Expert systems -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/expertsystem.png" alt="Expert systems diagram" class="diagram-image">
+
+  <ul>
+    <li>Systems that encode specialist knowledge to make decisions in a narrow domain.</li>
+    <li>How it works: a knowledge base (facts) plus an inference engine (reasoning rules) produces recommendations.</li>
+    <li>Creative example: a color-grading assistant that applies cinematography best practices based on scene conditions.</li>
+  </ul>
+
+  <p>Search and optimization methods</p>
+
+  <!-- DIAGRAM: Search / pathfinding grid -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/search-diagram.png" alt="Search and pathfinding diagram" class="diagram-image">
+
+  <ul>
+    <li>AI finds good solutions by exploring many possible options and scoring them.</li>
+    <li>How it works: algorithms search a space of possibilities using constraints, objectives, and heuristics (for example A* or constraint solving).</li>
+    <li>Creative example: layout generation that optimizes readability, balance, and accessibility constraints for posters or interfaces.</li>
+  </ul>
+
+  <p>Evolutionary algorithms</p>
+
+  <!-- DIAGRAM: Evolutionary algorithms -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/evolutionary.png" alt="Evolutionary algorithms diagram" class="diagram-image">
+
+  <ul>
+    <li>AI inspired by natural selection, where candidate solutions evolve over generations.</li>
+    <li>How it works: create many variants, score fitness, keep better candidates, then mutate/recombine to produce new ones.</li>
+    <li>Creative example: evolving abstract visual forms or type compositions where the artist curates each generation.</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== INTRO TO GENERATIVE AI ======== -->
+  <p>Introduction to Generative AI</p>
+  <ul>
+    <li>What is generative AI?</li>
+    <li>Generative AI is a type of artificial intelligence that can create new content instead of just analyzing or predicting.</li>
+    <li>Systems that create new content such as text, images, audio, video, or code based on patterns learned from large datasets.</li>
+    <li>How it works (high-level): models learn to predict what comes next (word, pixel pattern, frame). Prompts then guide generation toward your intent.</li>
+  </ul>
+
+  <!-- DIAGRAM: Generative AI flow -->
+  <!-- To swap: replace the filename below with your own image -->
+  <img src="assets/images/generative-ai.png" alt="Generative AI flow diagram" class="diagram-image">
+
+  <!-- INLINE IMAGE EXAMPLE: add images directly in the flow of content -->
+  <!-- Replace src with your own image file in assets/images/ -->
+  <!-- <img class="inline-image" src="assets/images/example-inline.jpg" alt="Generative AI diagram"> -->
+
+  <div class="break"></div>
+
+  <!-- ======== CURRENT TOOLS ======== -->
+  <p>Current Tools & Products</p>
+
+  <p>Text and ideation</p>
+  <p>ChatGPT, Claude, Gemini, Notion AI, DeepSeek, Qwen, Mistral, h2oGPT, <a href="http://jan.ai/">Jan.ai</a>, LM Studio, Ollama, Perplexity, Gemma 4, Kimi, Hunter Alpha, MiniMax</p>
+
+  <p>Image</p>
+  <p>Midjourney, Adobe Firefly, DALL-E, Stable Diffusion tools, Leonardo, ComfyUI, InvokeAI, Fooocus, Kandinsky, Playground AI, Nano Banana 2 (Gemini 3 Flash Image), Flux.1, Ideogram 2.0, Recraft</p>
+
+  <p>Video</p>
+  <p>Runway, Pika, Luma Dream Machine, Adobe AI features, ModelScope, CogVideo, LTX Video, Sora, Veo, Kling AI, Hailuo AI, HeyGen, Synthesia</p>
+
+  <p>Code and creative prototyping</p>
+  <p>GitHub Copilot, Cursor, Replit AI, CodeGeeX, Tabby, Continue, OpenDevin, Flowise, Stitch, Windsurf, Bolt.new, v0 by Vercel, Lovable, Claude Code, <a href="http://mars.ai/">Mars.ai</a></p>
+
+  <p>Audio</p>
+  <p>Suno, Udio, ElevenLabs, Adobe Podcast tools, Coqui TTS, Bark, XTTS, RVC, Lyria 3, Kyutai Moshi, Hume AI (EVI), Mubert, AIVA</p>
+
+  <div class="break"></div>
+
+  <!-- ======== WINNER-TAKE-ALL ======== -->
+  <p>Winner-Take-All Dynamics</p>
+
+  <p class="quote-highlight">Choice does not disappear loudly, it narrows into defaults.</p>
+
+  <p>Search Engine VS One Absolute Answer</p>
+  <ul>
+    <li>everyone using the same image model > same aesthetics</li>
+    <li>same coding assistants > similar structures</li>
+    <li>same datasets > same biases</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== EXERCISE ======== -->
+  <p>Exercise</p>
+  <ul>
+    <li>Draw Exercise.</li>
+    <li>Draw a portrait of one of the following options using P5js: mouse, frog, dog, cat, crocodile, whale, grasshopper, duck, cow and bear</li>
+    <li>OPTIONAL: make at least one element of the portrait an interactive variable.</li>
+    <li>Compare outputs across 2 tools</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== QUESTIONS ======== -->
+  <p>Questions</p>
+  <ul>
+    <li>Where in your current process are you relying on defaults?</li>
+    <li>Which creative decisions are genuinely yours vs suggested by the tool?</li>
+    <li>What would a diversified tool stack look like for your studio?</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== SPECULATIVE ======== -->
+  <p>Speculative is slowly gone</p>
+
+  <p>I have answer to everything</p>
+  <ul>
+    <li>AI collapses uncertainty too quickly</li>
+    <li>reduces open-ended exploration</li>
+    <li>replaces speculation with immediate resolution</li>
+  </ul>
+
+  <p>When everything returns an answer instantly, the space for speculation shrinks. The question is whether we still leave room for not knowing, or if we move too quickly into resolution.</p>
+
+  <p>Practical limitations (how it fails)</p>
+  <ul>
+    <li>Confidently wrong answers</li>
+    <li>Weak sense of truth vs plausibility</li>
+    <li>Poor long-term consistency</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== OTHER CRITIQUES ======== -->
+  <p>Other Critiques</p>
+  <ul>
+    <li>Ethics and consent concerns around training data.</li>
+    <li>Scale > requires massive compute, Water+ Power use</li>
+    <li>Copyright and authorship questions remain unresolved.</li>
+    <li>Potential impact on creative labor, rates, and expectations.</li>
+    <li>Bias, inaccuracies, and aesthetic homogenization.</li>
+    <li>Opt-out training data</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== BRIGHT SIDE ======== -->
+  <p>On the bright side</p>
+  <ul>
+    <li>Do the task you don't want to do</li>
+    <li>Yale Tools</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== EXPERIMENT THOUGHTS ======== -->
+  <p>Experiment Thoughts / How to work with it</p>
+  <ul>
+    <li>Knowing what is possible vs impossible</li>
+    <li>Computational thinking</li>
+    <!-- HOVER IMAGE: hover over "Spec coding" to show image. Change src to swap image. -->
+    <li>Vibe Coding VS <span class="hover-trigger">Spec coding<img class="hover-image" src="assets/images/speccode.png" alt="Spec coding illustration"></span></li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== EXTRA ======== -->
+  <p>Extra</p>
+
+  <p>What I always find it helpful is seeing how other people use it/set it in their own workflow</p>
+
+  <ul>
+    <li>How I set in the studio
+      <ul>
+        <li>Terminal coding - set up</li>
+        <!-- HOVER IMAGE: hover over "Spec code" to show image. Change src to swap image. -->
+        <li><span class="hover-trigger">Spec code<img class="hover-image" src="assets/images/speccode.png" alt="Spec coding illustration"></span></li>
+        <li>OpenClaw for task we don't like</li>
+      </ul>
+    </li>
+    <li>How I see people use it</li>
+    <li>Discussion time!</li>
+  </ul>
+
+  <div class="break"></div>
+
+  <!-- ======== CLAUDE CODE INSTALL ======== -->
+  <p>Claude Code Terminal installation Step by Step</p>
+  <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+  <p><a href="claude-code-steps.html" target="_blank">More step</a></p>
+
+  <div class="break"></div>
+
+  <!-- ======== REFERENCES ======== -->
+  <p>References, Further Reading, and Bibliography</p>
+<ul>
+  <li><a href="https://aima.cs.berkeley.edu/" target="_blank">Russell and Norvig, Artificial Intelligence: A Modern
+      Approach (symbolic, search, and ML foundations)</a></li>
+  <li><a href="https://www.ibm.com/think/topics/expert-system" target="_blank">IBM: What are expert systems?</a></li>
+  <li><a href="https://ocw.mit.edu/" target="_blank">MIT OpenCourseWare: Introduction to Algorithms and search
+      methods</a></li>
+  <li><a href="https://www.nature.com/natmachintell/" target="_blank">Nature Machine Intelligence and policy discussions
+      on foundation model concentration</a></li>
+  <li><a href="https://oecd.ai/" target="_blank">OECD AI policy observatory</a></li>
+  <li><a href="https://www.ruhabenjamin.com/race-after-technology" target="_blank">Critical perspective: Ruha Benjamin,
+      Race After Technology</a></li>
+  <li><a href="https://nyupress.org/9781479837243/algorithms-of-oppression/" target="_blank">Critical perspective:
+      Safiya Noble, Algorithms of Oppression</a></li>
+  <li><a href="https://www.copyright.gov/ai/" target="_blank">US Copyright Office: AI and Copyright</a></li>
+  <li><a href="https://www.oecd.org/en/topics/artificial-intelligence.html" target="_blank">OECD (2024): AI, data, and
+      market concentration</a></li>
+  <li><a href="https://arxiv.org/abs/2604.07118" target="_blank">Huang, Tuan-Ting, Janet Yi-Ching Huang, and Stephan
+      Wensveen. 2026. Workmanship of Learning: Embedding Craftsmanship Values in AI-Integrated Educational Tools.
+      arXiv.</a></li>
+  <li><a href="https://katecrawford.net/atlas" target="_blank">Crawford, Kate. 2021. Atlas of AI: Power, Politics,
+      and the Planetary Costs of Artificial Intelligence.</a></li>
+  <li><a
+      href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier"
+      target="_blank">McKinsey: The economic potential of generative AI</a></li>
+  <li><a href="https://www.youtube.com/watch?v=dry_rIRsDl8" target="_blank">John Maeda. (2026). Design in Tech Report
+      SXSW 2026: UX to AX [Video]. YouTube.</a></li>
+</ul>
+
+  <!--
+    ======== ADDING MORE CONTENT ========
+
+    To add a new section, just add more <p> and <ul> elements.
+    Everything stays the same size and weight.
+
+    To add a hover-image trigger on any word:
+    <span class="hover-trigger">your word<img class="hover-image" src="assets/images/your-image.jpg" alt="description"></span>
+
+    To add an inline image:
+    <img class="inline-image" src="assets/images/your-image.jpg" alt="description">
+  -->
+
+</div><!-- end .page-wrap -->
+
+<!-- p5.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+
+<!-- Highlighter overlay sketch -->
+<script src="sketch.js"></script>
+
+</body>
+</html>
